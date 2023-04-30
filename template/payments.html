@@ -1,0 +1,279 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Admin</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100%;
+            width: 100%;
+        }
+
+        .header{
+            height: 60px;
+            background-color: white;
+            border: none;
+            border-bottom: rgb(207, 207, 207) solid 2px;
+        }
+
+        ul{
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            text-align: right;
+            gap: 22px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        ul li{
+            list-style: none;
+            text-align: right;
+        }
+
+        ul li a{
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            color: rgb(16, 8, 8);
+            padding: 10px;
+        }
+
+        ul:hover li a{
+            color: rgba(219, 41, 41, 0.854);
+        }
+
+        ul:hover li a:not(:hover){
+            color: rgb(16, 8, 8);
+            opacity: 0.3;
+            filter: blur(0.2px);
+        }
+
+        .headerTag{
+            display: flex;
+            gap: 40%;
+        }
+
+        .nbs_name{
+            padding: 15px;
+        }
+
+        .logo{
+            display: flex;
+            padding-top: 2px;
+        }
+
+        table, th, td {
+            border: 1px solid;
+            margin-top: 20px;
+        }
+
+        table {
+            margin-left: 3%;
+            margin-right: 3%;
+            width: 90%;
+            max-height: 40%;
+        }
+
+        table td{
+            padding-left: 3px;
+        }
+
+        table th{
+            height: 35px;
+            background-color: rgb(216, 81, 81);
+        }
+
+        table, td, button{
+            text-align: center;
+        }
+
+        .see{
+            font-size: 10px;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .see a{
+            text-decoration: none;
+            color: red;
+            padding: 10px;
+        }
+
+        .logout{
+            height: 30px;
+            margin-bottom: 20px;
+        }
+
+        .logout a{
+            text-decoration: none;
+            color: red;
+            padding: 10px;
+            font-weight: 600;
+        }
+
+        .left_menu{
+            background-color: rgb(26, 26, 53);
+            height: 100%;
+        }
+
+        .workspace{
+            border: black 2px solid;
+            width: 75%;
+            height: 70%;
+            max-height: 70%;
+            max-width: 75%;
+            margin-top: 50px;
+            margin-left: 20%;
+            margin-right: 5%;
+        }
+
+        .section{
+            background-color: rgb(223, 89, 89);
+            border: black 2px solid;
+            float: left;
+            width: 250px;
+            height: 100%;
+        }
+
+        .section .sect_header{
+            background-color: rgb(207, 58, 58);
+            height: 70px;
+            margin: auto;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            padding: 5px;
+            border: none;
+            border-bottom: black 2px solid;
+        }
+
+        .section .sections{
+            padding-left: 20px;
+            padding-top: 20px;
+            height: 50px;
+
+        }
+
+        .section .sections:hover{
+            cursor: pointer;
+            background-color: aliceblue;
+        }
+
+        .name{
+            height: 60px;
+            font-size: 30px;
+            padding-left: 5px;
+            border: none;
+            border-bottom: black 2px solid;
+        }
+
+        .menu_header{
+            height: 50px;
+            padding-top: 10px;
+            font-size: 20px;
+            background-color: rgb(223, 89, 89);
+            padding-left: 7px;
+            border: none;
+            border-bottom: black 2px solid;
+        }
+
+        .section .sections a{
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .previous{
+            width: 100px;
+            float: left;
+            margin-left: 10px;
+            height: 35px;
+        }
+
+        .next{
+            width:100px;
+            height: 35px;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .info_table{
+            width: fit-content;
+            height: 30px;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headerTag">
+            <ul class="headerList">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">GET INVOLVED</a></li>
+                <li><a href="#">MEDIA</a></li>
+                <li><a href="#">CONTACT US</a></li>
+                <li><button class="logout"><a href="logout">Logout</a></button></li>
+            </ul>
+            <div class="logo">
+                <h3 class="nbs_name">National Blood Service</h3>
+                <img src="nbs_logo_2.png" alt="" width="52px" height="52px">
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="section">
+            <h3 class="sect_header">Admin</h3>
+            <div class="sections"><img src="#" alt="#"><a href="dashboard">Dashboard</a></div>
+            <hr>
+            <div class="sections"><img src="#" alt="#"> <a href="patients">Patients</a></div>
+            <hr>
+            <div class="sections"><img src="#" alt="#"><a href="">Appointments</a> </span></div>
+            <hr>
+            <div class="sections"><img src="#" alt="#"><a href="chatroom">Chatroom</a></div>
+            <hr>
+            <div class="sections"><img src="#" alt="#"><a href="payments">Payments</a></div>
+            <hr>
+            <div class="sections"><img src="#" alt="#"><a href="others">Other Pages</a></div>
+            <hr>
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
+            <br><br>
+        </div>
+    </div>
+
+    <div class="workspace">
+        <fieldset>
+            <nav class="name"><h3>OBBMS</h3></nav>
+            <nav class="menu_header"><h3>Dashboard</h3></nav>
+            <br>
+            <br>
+            <br><br><br><br>
+            <button class="previous"> Previous Page </button>
+            <button class="next"> Next Page </button>
+            <br><br>
+            <br>
+        </fieldset>
+    </div>
+
+</body>
+</html>

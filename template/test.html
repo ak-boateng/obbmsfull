@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header{
+            height: 60px;
+            background-color: white;
+            border: none;
+            border-bottom: rgb(207, 207, 207) solid 2px;
+        }
+
+        ul{
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            text-align: right;
+            gap: 22px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        ul li{
+            list-style: none;
+            text-align: right;
+        }
+
+        ul li a{
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            color: rgb(16, 8, 8);
+            padding: 10px;
+        }
+
+        ul:hover li a{
+            color: rgba(219, 41, 41, 0.854);
+        }
+
+        ul:hover li a:not(:hover){
+            color: rgb(16, 8, 8);
+            opacity: 0.3;
+            filter: blur(0.2px);
+        }
+
+        .headerTag{
+            display: flex;
+            gap: 46%;
+        }
+
+        .nbs_name{
+            padding: 15px;
+        }
+
+        .logo{
+            display: flex;
+            padding-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headerTag">
+            <ul class="headerList">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">GET INVOLVED</a></li>
+                <li><a href="#">MEDIA</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <div class="logo">
+                <h3 class="nbs_name">National Blood Service</h3>
+                <img src="C:/Users/samue/Desktop/BBMS/bbms/Images/nbs_logo_2.png" alt="" width="52px" height="52px">
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>

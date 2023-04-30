@@ -1,0 +1,293 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Request</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header{
+            height: max-content;
+            align-items: center;
+            background-color: white;
+            border: none;
+            border-bottom: rgb(207, 207, 207) solid 2px;
+        }
+
+        ul{
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            text-align: justify;
+            gap: 22px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        ul li{
+            list-style: none;
+            text-align: right;
+        }
+
+        ul li a{
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            color: rgb(16, 8, 8);
+            padding: 10px;
+        }
+
+        ul:hover li a{
+            color: rgba(219, 41, 41, 0.854);
+        }
+
+        ul:hover li a:not(:hover){
+            color: rgb(16, 8, 8);
+            opacity: 0.3;
+            filter: blur(0.2px);
+        }
+
+        .headerTag{
+            display: flex;
+            gap: 46%;
+        }
+
+        .nbs_name{
+            padding: 15px;
+        }
+
+        .logo{
+            display: flex;
+            padding-top: 2px;
+        }
+
+        .form{
+            padding-top: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        fieldset{
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        legend{
+            margin-right: 3px;
+            margin-right: 3pxs;
+        }
+
+        input{
+            height: 25px;
+            width: 350px;
+            gap: 10px;
+            padding-right: 30px;
+        }
+
+        .fullname{
+            margin-right: 22px;
+        }
+
+        .date{
+            display: flex;
+            gap: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            
+        }
+
+        .date input{
+            width: 200px;
+            border: none;
+            border-bottom: rgb(207, 207, 207) solid 2px;
+        }
+
+        .gender{
+            display: flexs;
+        }
+
+        .donation_status{
+            display: flex;
+            gap: 30px;
+        }
+
+        .donation_status input{
+            width: 200px;
+        }
+
+        .donor_card input{
+            width: 200px;
+            margin-left: 3pxs;
+        } 
+
+        .family{
+            display: flex;
+            gap: 30px;
+        }
+
+        .family input{
+            width: 300px;
+            gap: 30px;
+            
+        }
+
+        input[type=checkbox]{
+            vertical-align: middle;
+            position: relative;
+            bottom: 1px;
+        }
+
+        .checkbox{
+            display: inline;
+            gap: 10px;
+        }
+
+        .submit{
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            align-self: flex-end;
+            margin-left: 10px;
+            float: right;
+        }
+
+        .submit a{
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        .previous{
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            align-self: flex-end;
+            margin-left: 10px;
+            float: left;
+        }
+
+        .previous a{
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headerTag">
+            <ul class="headerList">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">GET INVOLVED</a></li>
+                <li><a href="#">MEDIA</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <div class="logo">
+                <h3 class="nbs_name">National Blood Service</h3>
+                <img src="nbs_logo_2" alt="" width="52px" height="52px">
+            </div>
+        </div>
+    </div>
+    <br> 
+    <div class="form">
+        <div class="date">
+            <h3>Date: </h3>
+            <input type="date" placeholder="date">
+        </div>
+        <br>
+       
+        <fieldset class="personal">
+            <legend><h2>Personal Details</h2></legend>
+            <h3>Fullname</h3>
+            <br>
+            <div class="fullname">
+                <input type="text" name="firstname" placeholder="{{donor.firstname}}" readonly>
+                <input type="text" name="middlename" placeholder="{{donor.middlename}}" readonly>
+                <input type="text" name="lastname" placeholder="{{donor.lastname}}" readonly readonly>
+            </div> 
+            <br>
+            <h3>Contacts</h3>
+            <br>
+            <div class="contact">
+                <nav><input type="text" name="email" placeholder="{{donor.email}}" readonly></nav>
+                <nav><input type="text" name="phone_number" placeholder="{{donor.phone_number}}" readonly></nav>
+            </div>
+            <br>
+            <h3>Location</h3>
+            <br>
+            <div class="location">
+                <nav><input type="text" name="area" placeholder="{{donor.area_or}}" readonly></nav>
+                <nav><input type="text" name="town" placeholder="{{donor.town}}" readonly></nav>
+            </div>
+            <br>
+            <h3>Identifictaion Cards</h3>
+            <br>
+            <div class="id_cards">
+                <p>ID Type</p>
+                <br>
+                <div class="checkbox">
+                    <input type="checkbox" name="id_card" id="National_ID" >: National ID<br>
+                <input type="checkbox" name="id_card" id="Passport">: Passport<br>
+                <input type="checkbox" name="id_card" id="Driver">: Driver's License<br>
+                <input type="checkbox" name="id_card" id="Voter_ID">: Voter's ID<br>
+                <input type="checkbox" name="id_card" id="NHIS">: NHIS Card<br>
+                <input type="checkbox" name="id_card" id="Stu_ID">: Student's ID<br>
+                <input type="checkbox" name="id_card" id="others">Others<br>
+                </div>
+                <br>
+                <nav><p>ID Card Number: <input type="text" name="card_number" placeholder="{{donor.id_number}}" readonly></p></nav>
+            </div>
+        </fieldset>
+        <br>
+        <br>
+        <fieldset class="personal">
+            <legend><h2>Donation History</h2></legend>
+            <nav><h3>Have you donated blood before? </h3>
+            <br>
+            <div class="donation_status">
+                <p>If yes, what is your last donation date? <nav><input type="date" name="donation_date" class="donation_date"></nav></p>
+                <p>How many times have you donated? <nav><input type="number" placeholder="{{donor.donor_number}}" readonly></nav> </p>
+            </div> 
+            <br>
+            <div class="card">
+                <p class="donor_card">Donor Card Number: <input type="number" placeholder="{{donor.donor_card}}" readonly></nav></p>
+            </div>
+            <br>
+        </fieldset>
+        <br>
+        <br>
+        <fieldset class="personal">
+            <legend><h2>Replacement/Family Donors Only</h2></legend>
+            <h3>Fullname</h3>
+            <br>
+            <div class="family">
+                <p>Name of Patient: <nav><input type="text" name="firstname" placeholder="{{donor.name_of_patient}}" readonly></nav></p>
+                <p>Hospital: <nav><input type="text" name="hospital" placeholder="{{donor.hospital}}" readonly></nav></p>
+                <p>Ward: <nav><input type="text" name="ward" placeholder="{{donor.ward}}" readonly></nav></p>
+            </div> 
+            <br>
+            </div>
+        </fieldset>
+        <br>
+        <br>
+            <button class="previous"><a href="back">Previous</a></button>
+
+            <button class="submit"><a href="test">Next</a></button>
+            <br><br>
+    </form>
+    </div>
+
+</body>
+</html>

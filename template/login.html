@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header{
+            height: 60px;
+            background-color: white;
+            border: none;
+            border-bottom: rgb(207, 207, 207) solid 2px;
+        }
+
+        ul{
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            text-align: right;
+            gap: 22px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        ul li{
+            list-style: none;
+            text-align: right;
+        }
+
+        ul li a{
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            color: rgb(16, 8, 8);
+            padding: 10px;
+        }
+
+        ul:hover li a{
+            color: rgba(219, 41, 41, 0.854);
+        }
+
+        ul:hover li a:not(:hover){
+            color: rgb(16, 8, 8);
+            opacity: 0.3;
+            filter: blur(0.2px);
+        }
+
+        .headerTag{
+            display: flex;
+            gap: 46%;
+        }
+
+        .nbs_name{
+            padding: 15px;
+        }
+
+        .logo{
+            display: flex;
+            padding-top: 2px;
+        }
+
+        .signup{
+            border: black 2px solid;
+            text-align: center;
+            margin-top: 10%;
+            margin-left: 30%;
+            margin-bottom: 20%;
+            margin-right: 30%; 
+        }
+
+        nav h3{
+            font-size: 40px;
+            background-color: rgb(173, 51, 51);
+            color: aliceblue;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: none;
+            border-bottom: black solid 2px;
+            margin-bottom: 5px;
+        }
+
+        nav, p{
+            font-size: 20px;
+        }
+
+        input{
+            width: 300px;
+            height: 30px;
+            border: solid 2pxs;
+        }
+
+        .submit{
+            width: 60px;
+        }
+
+        .message{
+            font-size: 15px;
+            color: rgb(220, 38, 38);
+        }
+
+        .signin a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="headerTag">
+            <ul class="headerList">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">GET INVOLVED</a></li>
+                <li><a href="#">MEDIA</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+            <div class="logo">
+                <h3 class="nbs_name">National Blood Service</h3>
+                <img src="C:/Users/samue/Desktop/BBMS/bbms/Images/nbs_logo_2.png" alt="" width="52px" height="52px">
+            </div>
+        </div>
+    </div>
+
+    <form action="login" method="POST">
+        {% csrf_token %}
+        <div class="signup">
+            <nav><h3>Admin Log In</h3></nav>
+            <br>
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Username">
+            <br>
+            <br>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+            <br>
+            <button class="submit">Submit</button>
+            <br>
+            <br>
+            <p class="signin"><a href="adminsignup">New Admin? Click to create account</a></p>
+            <br>
+            <br>
+            {% for message in messages %}
+            <h5 class="message">{{message}}</h5>
+            {% endfor %}
+        </div>
+    </form>
+</body>
+</html>
